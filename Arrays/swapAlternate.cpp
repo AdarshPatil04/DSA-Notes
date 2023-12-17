@@ -1,4 +1,4 @@
- /**
+/**
  * The swapAlternate function takes an array and its size as parameters and swaps the alternate elements of the array.
  * For example, if the input array is [1, 2, 3, 4, 5, 6], the function will swap the elements at indices 0 and 1, 2 and 3, and 4 and 5.
  * The printArray function is used to print the modified array.

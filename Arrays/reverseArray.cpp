@@ -12,7 +12,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<int> reverseArray(vector<int> arr)
+vector<int> reverseArray(vector<int>& arr)
 {
     int s = 0, e = arr.size() - 1;
     while (s <= e)

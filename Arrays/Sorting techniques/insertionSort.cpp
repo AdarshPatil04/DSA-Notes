@@ -60,6 +60,12 @@ void insertionSort(vector<int> &arr)
 
 int main()
 {
+    vector<int> arr = {5, 4, 3, 2, 1};
+    insertionSort(arr);
 
+    // Print the sorted array
+    for(auto i: arr){
+        cout<<i<<" ";
+    }
     return 0;
 }

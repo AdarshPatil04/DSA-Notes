@@ -15,7 +15,9 @@ using namespace std;
 vector<int> reverseArray(vector<int>& arr)
 {
     int s = 0, e = arr.size() - 1;
-    while (s <= e)
+
+    // s<e because we don't want to swap the middle element with itself or s<=e is also correct
+    while (s < e)
     {
         swap(arr[s], arr[e]);
         s++;

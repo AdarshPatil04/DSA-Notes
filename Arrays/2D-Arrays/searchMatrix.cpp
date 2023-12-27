@@ -21,6 +21,8 @@ using namespace std;
 bool searchMatrix(vector<vector<int>> &matrix, int target)
 {
     int n = matrix.size();
+
+    // m is the number of columns in the matrix
     int m = matrix[0].size();
 
     // s stores the starting index of the matrix & e stores the ending index of the matrix

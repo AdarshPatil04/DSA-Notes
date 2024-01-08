@@ -32,7 +32,7 @@ vector<char> stringCompression(vector<char> &chars)
         // Adding the current character to the compressed string vector
         chars[ansIndex++] = chars[i];
 
-        // Storing the count of the current character in the form of digits
+        // Storing the count of the current character in the form of digits, Eg: "caaabb" count for a --> j=4, i=1, count=3
         int count = j - i;
 
         // If the count is greater than 1, we need to add the count to the compressed string vector

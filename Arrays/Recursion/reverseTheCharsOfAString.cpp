@@ -8,7 +8,7 @@
  * 
  * @param str The input string to be reversed.
  * @param i The start index of the substring to be reversed.
- * @param j The end index of the substring to be reversed.
+ * @param j or n-i-1 The end index of the substring to be reversed.
  */
 
 #include<bits/stdc++.h>

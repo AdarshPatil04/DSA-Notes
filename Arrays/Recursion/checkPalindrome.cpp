@@ -1,11 +1,11 @@
 /**
  * @brief This program checks if a given string is a palindrome or not using recursion.
- * 
+ *
  * The program defines a function checkPalindrome() that takes a string, starting index (i), and ending index (j) as parameters.
  * It recursively checks if the characters at the given indices are equal, starting from the outermost indices and moving towards the center.
  * If the characters are not equal at any point, the function returns false.
  * If the function reaches a point where the starting index is greater than the ending index, it means all characters have been checked and are equal, so it returns true.
- * 
+ *
  * The main function initializes a string and calls the checkPalindrome() function with the string, starting index 0, and ending index (length - 1).
  * It then prints '1' if the string is a palindrome, and '0' otherwise.
  */

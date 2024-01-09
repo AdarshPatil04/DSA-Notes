@@ -26,7 +26,7 @@ int fibonacci(int n){
 }
 
 int main(){
-    int n = 5;
+    int n = 3;
 
     // prints the nth Fibonacci number
     cout<<fibonacci(n);

@@ -12,11 +12,12 @@ using namespace std;
 
 // reachHome function takes source and destination as input and recursively prints the path from source to destination.
 void reachHome(int src, int des){
-    cout<<"Source"<<src<<"Destination"<<des<<endl;
+    cout<<"Source "<<src<<" Destination "<<des<<endl;
 
     // base case
     if(src == des){
         cout<<"Reached home"<<endl;
+        return;
     }
 
     // processing

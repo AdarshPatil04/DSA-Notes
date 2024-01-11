@@ -57,6 +57,10 @@ void merge(int *arr, int s, int e)
         else{
             arr[mainArrayIndex++]=arr2[index2++];
         }
+
+        // delete the arrays arr1 and arr2
+        delete [] arr1;
+        delete [] arr2;
     }
 
     // if there are any remaining elements in arr1 then store them in arr

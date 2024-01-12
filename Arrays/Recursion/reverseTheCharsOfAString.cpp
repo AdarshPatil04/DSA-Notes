@@ -14,7 +14,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void reverseTheCharsOfAString(string str, int i, int j)
+// Pass by reference otherwise reversed string cannot be printed
+void reverseTheCharsOfAString(string& str, int i, int j)
 {
 
     // base case
@@ -38,5 +39,6 @@ int main()
 
     // Printing the reversed string
     reverseTheCharsOfAString(str, 0, str.length() - 1);
+    cout<<str;
     return 0;
 }

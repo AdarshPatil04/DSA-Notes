@@ -1,3 +1,10 @@
+/**
+ * @brief This code demonstrates the implementation of a singly linked list in C++.
+ *        It includes functions to create, print, insert at head, insert at tail, insert at a given position,
+ *        and delete a node at a given position in the linked list.
+ *        The code also includes a Node class with a constructor and destructor to manage the memory of the nodes.
+ */
+
 #include <bits/stdc++.h>
 using namespace std;
 

@@ -1,3 +1,10 @@
+/**
+ * @brief This code demonstrates the reversal of a linked list using a recursive approach.
+ *        It defines a Node class with data and next pointer, and provides functions to reverse
+ *        the linked list and print its elements. The main function creates a linked list, prints
+ *        it before reversal, reverses the linked list, and prints it again after reversal.
+ */
+
 #include <bits/stdc++.h>
 using namespace std;
 

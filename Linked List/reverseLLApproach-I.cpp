@@ -35,7 +35,7 @@ public:
 };
 
 // Reverse the linked list
-Node *reverseLinkedList(Node *head)
+Node *reverseLinkedList(Node *&head)
 {
     // If the linked list is empty or has only one node
     if (head == NULL || head->next == NULL)
@@ -64,7 +64,7 @@ Node *reverseLinkedList(Node *head)
 }
 
 // Print the linked list
-void print(Node *head)
+void print(Node *&head)
 {
     // Creating a temporary Node to traverse the linked list
     Node *temp = head;

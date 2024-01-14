@@ -1,3 +1,9 @@
+/**
+ * Time Complexity : O(n)
+ * This code demonstrates the implementation of a doubly linked list and finding the middle node of the list.
+ * It includes functions to find the length of the list, insert a node at the end of the list, and print the list.
+ * The main function creates a doubly linked list, inserts nodes, prints the list, and finds the middle node.
+ */
 #include<bits/stdc++.h>
 using namespace std;
 

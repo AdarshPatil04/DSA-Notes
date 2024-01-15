@@ -19,9 +19,8 @@ class Node{
     public:
     int data;
     Node* next;
-    Node* prev;
 
-    Node(int value):data(value),next(nullptr),prev(nullptr){}
+    Node(int value):data(value),next(nullptr){}
 };
 
 // Function to check if a singly linked list is circular or not
@@ -45,47 +44,72 @@ bool isCircular(Node* head){
     return false;
 }
 
-// Function to print a singly linked list
-void print(Node* head){
-    // If the singly linked list is empty, then return
-    if(head==nullptr){
-        return;
-    }
-    // Otherwise, traverse the singly linked list and print the data of each node
-    while(head!=nullptr){
-        cout<<head->data<<" ";
-        head=head->next;
-    }
-    cout<<endl;
+// Insert at tail
+void insertAtTail(Node *&tail, int data)
+{
+    // Creating a temporary Node to traverse the linked list
+    Node *temp = new Node(data);
+
+    // Making the next pointer of the tail point to the new Node
+    tail->next = temp;
+
+    // Making the tail point to the new Node
+    tail = tail->next;
 }
 
-// Function to insert a node at the end of a singly linked list
-Node* insertAtEnd(Node* head,int value){
-    // Create a new node
-    Node* newNode = new Node(value);
-    // If the singly linked list is empty, then make the new node as head
-    if(head==nullptr){
-        return newNode;
+void insertAtPosition(Node *&head, int position, int data)
+{
+    // Creating a temporary Node to traverse the linked list
+    Node *temp = head;
+    int count = 1;
+
+    // Traversing the linked list before the position-1 because position-1 is the temp Node
+    while (count < position - 1)
+    {
+        temp = temp->next;
+        count++;
     }
-    // Otherwise, traverse the singly linked list to go to the last node
-    Node* temp = head;
-    while(temp->next!=nullptr){
-        temp=temp->next;
+
+    // If the position is greater than the length of the linked list then insert at tail
+    if (temp->next == NULL)
+    {
+        insertAtTail(temp, data);
+        return;
     }
-    // Change the next of the last node
-    temp->next=newNode;
-    // Return the head pointer of the singly linked list
-    return head;
+
+    // Creating a new Node to insert at the given position
+    Node *nodeToInsert = new Node(data);
+
+    // Making the next pointer of the new Node point to the next Node of the temp Node
+    nodeToInsert->next = temp->next;
+
+    // Making the next pointer of the temp Node point to the new Node
+    temp->next = nodeToInsert;
+}
+
+// Print the linked list
+void print(Node *head)
+{
+    // Creating a temporary Node to traverse the linked list
+    Node *temp = head;
+
+    // Traversing the linked list and printing the data until temp->next is NULL
+    while (temp != NULL)
+    {
+        cout << temp->data << " ";
+        temp = temp->next;
+    }
+    cout << endl;
 }
 
 int main(){
     // Create a singly linked list: 1 -> 2 -> 3 -> 4 -> 5
-    Node* head = nullptr;
-    head = insertAtEnd(head,1);
-    head = insertAtEnd(head,2);
-    head = insertAtEnd(head,3);
-    head = insertAtEnd(head,4);
-    head = insertAtEnd(head,5);
+    Node* head = new Node(1);
+    insertAtPosition(head,1,1);
+    insertAtPosition(head,2,2);
+    insertAtPosition(head,3,3);
+    insertAtPosition(head,4,4);
+    insertAtPosition(head,5,5);
 
     // Make the singly linked list circular
     Node* temp = head;

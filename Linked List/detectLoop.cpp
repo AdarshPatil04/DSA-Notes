@@ -1,6 +1,6 @@
 /**
  * Time Complexity : O(n)
- * Space Complexity : O(n           )
+ * Space Complexity : O(n)
  * @brief This program checks if a singly linked list contains a loop or not.
  * 
  * The program uses a map to store the nodes and their frequency. It traverses the linked list
@@ -17,12 +17,11 @@ class Node{
     public:
     int data;
     Node* next;
-    Node* prev;
 
-    Node(int value):data(value),next(nullptr),prev(nullptr){}
+    Node(int value):data(value),next(nullptr){}
 };
 
-// Function to check if a singly linked list is circular or not
+// Function to check if a singly linked list is having a loop or not
 bool detectLoop(Node* head) {
     // Map to store the nodes and their frequency
     map<Node*, int> visited;
@@ -40,7 +39,7 @@ bool detectLoop(Node* head) {
         // Move the temp pointer to the next node
         temp = temp->next;
     }
-    // Otherwise, the singly linked list is not circular
+    // Otherwise, the singly linked list is not having a loop
     return false;
 }
 

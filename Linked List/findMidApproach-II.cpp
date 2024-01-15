@@ -1,15 +1,15 @@
 /**
  * Time Complexity : O(n)
  * Space Complexity : O(1)
- * This code demonstrates how to find the middle node of a doubly linked list.
+ * This code demonstrates how to find the middle node of a singly linked list.
  * It defines a Node class with data, next, and prev pointers.
- * The getMid function finds the middle node using a slow and fast pointer approach.
+ * The getMid function finds the middle node of the linked list using two pointers - slow and fast.
  * The findMid function is a wrapper function that calls getMid to find the middle node.
- * The insertAtEnd function inserts a node at the end of the doubly linked list.
- * The print function prints the elements of the doubly linked list.
- * The main function creates a doubly linked list, inserts elements, finds the middle node, and prints it.
+ * The insertAtTail function inserts a new node at the end of the linked list.
+ * The insertAtPosition function inserts a new node at a specific position in the linked list.
+ * The print function prints the data of all nodes in the linked list.
+ * The main function creates a linked list, inserts nodes, prints the list, and finds the middle node.
  */
-
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -22,15 +22,15 @@ public:
     Node(int value) : data(value), next(nullptr), prev(nullptr) {}
 };
 
-// Function to find the middle node of a doubly linked list
+// Function to find the middle node of a singly linked list
 Node *getMid(Node *head)
 {
-    // If the doubly linked list is empty or has only one node, then return the head
+    // If the singly linked list is empty or has only one node, then return the head
     if (head == NULL || head->next == NULL)
     {
         return head;
     }
-    // If the doubly linked list has only two nodes, then return the second node
+    // If the singly linked list has only two nodes, then return the second node
     if (head->next->next == NULL)
     {
         return head->next;
@@ -38,7 +38,7 @@ Node *getMid(Node *head)
     // Otherwise, initialize two pointers slow and fast to the head and head->next respectively
     Node *slow = head;
     Node *fast = head->next;
-    // Traverse the doubly linked list until the fast pointer reaches the end of the doubly linked list
+    // Traverse the singly linked list until the fast pointer reaches the end of the singly linked list
     while (fast != NULL)
     {
         // Move the fast pointer two nodes ahead of the slow pointer
@@ -49,56 +49,90 @@ Node *getMid(Node *head)
         }
         slow = slow->next;
     }
-    // Return the middle node of the doubly linked list
+    // Return the middle node of the singly linked list
     return slow;
 }
 
-// Recursive function to find the middle node of a doubly linked list
+// Recursive function to find the middle node of a singly linked list
 Node *findMid(Node *head)
 {
-    // Return the middle node of the doubly linked list
+    // Return the middle node of the singly linked list
     return getMid(head);
 }
 
-// Function to print a doubly linked list
-void print(Node* head){
-    while(head!=nullptr){
-        cout<<head->data<<" ";
-        head=head->next;
-    }
-    cout<<endl;
+// Insert at tail
+void insertAtTail(Node *&tail, int data)
+{
+    // Creating a temporary Node to traverse the linked list
+    Node *temp = new Node(data);
+
+    // Making the next pointer of the tail point to the new Node
+    tail->next = temp;
+
+    // Making the tail point to the new Node
+    tail = tail->next;
 }
 
-// Function to insert a node at the end of a doubly linked list
-Node* insertAtEnd(Node* head,int value){
-    Node* newNode = new Node(value);
-    if(head==nullptr){
-        return newNode;
+void insertAtPosition(Node *&head, int position, int data)
+{
+    // Creating a temporary Node to traverse the linked list
+    Node *temp = head;
+    int count = 1;
+
+    // Traversing the linked list before the position-1 because position-1 is the temp Node
+    while (count < position - 1)
+    {
+        temp = temp->next;
+        count++;
     }
-    Node* temp = head;
-    while(temp->next!=nullptr){
-        temp=temp->next;
+
+    // If the position is greater than the length of the linked list then insert at tail
+    if (temp->next == NULL)
+    {
+        insertAtTail(temp, data);
+        return;
     }
-    temp->next=newNode;
-    newNode->prev=temp;
-    return head;
+
+    // Creating a new Node to insert at the given position
+    Node *nodeToInsert = new Node(data);
+
+    // Making the next pointer of the new Node point to the next Node of the temp Node
+    nodeToInsert->next = temp->next;
+
+    // Making the next pointer of the temp Node point to the new Node
+    temp->next = nodeToInsert;
+}
+
+// Print the linked list
+void print(Node *head)
+{
+    // Creating a temporary Node to traverse the linked list
+    Node *temp = head;
+
+    // Traversing the linked list and printing the data until temp->next is NULL
+    while (temp != NULL)
+    {
+        cout << temp->data << " ";
+        temp = temp->next;
+    }
+    cout << endl;
 }
 
 int main()
 {
-    Node* head = nullptr;
-    head = insertAtEnd(head,1);
-    head = insertAtEnd(head,2);
-    head = insertAtEnd(head,3);
-    head = insertAtEnd(head,4);
-    head = insertAtEnd(head,5);
-    head = insertAtEnd(head,6);
-    head = insertAtEnd(head,7);
-    head = insertAtEnd(head,8);
-    head = insertAtEnd(head,9);
-    head = insertAtEnd(head,10);
+    Node *head = new Node(1);
+    Node *tail = head;
+    insertAtPosition(head, 2, 2);
+    insertAtPosition(head, 3, 3);
+    insertAtPosition(head, 4, 4);
+    insertAtPosition(head, 5, 5);
+    insertAtPosition(head, 6, 6);
+    insertAtPosition(head, 7, 7);
+    insertAtPosition(head, 8, 8);
+    insertAtPosition(head, 9, 9);
+    insertAtPosition(head, 10, 10);
     print(head);
-    Node* mid = findMid(head);
-    cout<<mid->data<<endl;
+    Node *mid = findMid(head);
+    cout << mid->data << endl;
     return 0;
 }

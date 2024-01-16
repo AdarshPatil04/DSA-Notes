@@ -1,8 +1,3 @@
-/**
- * This code demonstrates how to detect and find the starting node of a cycle in a singly linked list.
- * It uses Floyd's Tortoise and Hare algorithm to detect the cycle and then finds the starting node of the cycle.
- * The code creates a linked list with a cycle and finds the starting node of the cycle, if present.
- */
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -74,6 +69,19 @@ Node *findStartingNode(Node *head)
     return slow;
 }
 
+Node* removeLoop(Node* head){
+    if(head == NULL){
+        return NULL;
+    }
+    Node* startOfLoop = findStartingNode(head);
+    Node* temp = startOfLoop;
+    while(temp->next != startOfLoop){
+        temp = temp->next;
+    }
+    temp->next = NULL;
+    return head;
+}
+
 int main()
 {
     Node *head = new Node(1);
@@ -82,13 +90,10 @@ int main()
     Node *tail = head->next->next;
     // Making tail point to next of head that is 2 so the linked list is 1 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 ...
     tail->next = head->next;
-    // Find the node where the cycle starts
-    Node *startingNode = findStartingNode(head);
-    // If the starting node is not null, then print the starting node
-    if (startingNode != NULL)
+    head = removeLoop(head);
+    if (floydDetectLoop(head) != NULL)
     {
         cout << "Cycle is present.\n";
-        cout << "Starting node is " << startingNode->data << endl;
     }
     else
     {

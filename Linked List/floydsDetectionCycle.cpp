@@ -1,4 +1,6 @@
 /**
+ * Time Complexity : O(n)
+ * Space Complexity : O(1)
  * This code demonstrates the Floyd's Cycle Detection algorithm to detect a loop in a singly linked list.
  * It creates a linked list with a cycle and then uses the Floyd's algorithm to detect the cycle.
  * If a cycle is present, it prints "Cycle is present." Otherwise, it prints "No Cycle is present."
@@ -36,6 +38,7 @@ Node* floydDetectLoop(Node* head){
         slow=slow->next;
         // If the slow pointer and the fast pointer meet, then return the slow pointer
         if(slow==fast){
+            cout<<"Present at "<<slow->data<<endl;
             return slow;
         }
     }

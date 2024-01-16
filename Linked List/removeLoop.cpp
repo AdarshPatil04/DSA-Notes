@@ -1,3 +1,10 @@
+/**
+ * @brief This code demonstrates how to detect and remove a loop in a singly linked list.
+ * 
+ * The code uses Floyd's cycle-finding algorithm to detect the presence of a loop in the linked list.
+ * If a loop is found, it then finds the node where the cycle starts and removes the loop by breaking the link.
+ * Finally, it prints the modified linked list after removing the loop.
+ */
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -55,6 +62,9 @@ Node *findStartingNode(Node *head)
     // Find the node where the cycle starts
     // intersection is the node where the slow pointer and the fast pointer meet
     Node *intersection = floydDetectLoop(head);
+    if(intersection == NULL){
+        return NULL;
+    }
     // Move the slow pointer to the head
     Node *slow = head;
     // Traverse the linked list until the slow pointer and the intersection meet
@@ -69,16 +79,27 @@ Node *findStartingNode(Node *head)
     return slow;
 }
 
+// Function to remove the loop in the linked list
 Node* removeLoop(Node* head){
+    // If the head is null, then return null
     if(head == NULL){
         return NULL;
     }
+    // Find the node where the cycle starts
     Node* startOfLoop = findStartingNode(head);
+    // If the startOfLoop is null, then return the head
+    if(startOfLoop == NULL){
+        return head;
+    }
+    // temp is a temporary Node to traverse the linked list
     Node* temp = startOfLoop;
+    // Traverse the linked list until the next of temp is startOfLoop
     while(temp->next != startOfLoop){
         temp = temp->next;
     }
+    // Make the next of temp point to NULL which is the temp Node just before the startOfLoop
     temp->next = NULL;
+    // Return the head of the linked list
     return head;
 }
 

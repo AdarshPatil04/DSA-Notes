@@ -36,7 +36,7 @@ Node *floydDetectLoop(Node *head)
         // If the slow pointer and the fast pointer meet, then return the slow pointer
         if (slow == fast)
         {
-            cout << "Present at " << slow->data << endl;
+            // cout << "Present at " << slow->data << endl;
             return slow;
         }
     }
@@ -82,6 +82,21 @@ Node* removeLoop(Node* head){
     return head;
 }
 
+// Print the linked list
+void print(Node *&head)
+{
+    // Creating a temporary Node to traverse the linked list
+    Node *temp = head;
+
+    // Traversing the linked list and printing the data until temp->next is NULL
+    while (temp != NULL)
+    {
+        cout << temp->data << " ";
+        temp = temp->next;
+    }
+    cout << endl;
+}
+
 int main()
 {
     Node *head = new Node(1);
@@ -90,14 +105,13 @@ int main()
     Node *tail = head->next->next;
     // Making tail point to next of head that is 2 so the linked list is 1 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 ...
     tail->next = head->next;
+    if(floydDetectLoop(head) != NULL){
+        cout<<"Cycle is present.\n";
+    }else{
+        cout<<"No Cycle is present.\n";
+    }
     head = removeLoop(head);
-    if (floydDetectLoop(head) != NULL)
-    {
-        cout << "Cycle is present.\n";
-    }
-    else
-    {
-        cout << "No Cycle is present.\n";
-    }
+    cout<<"After the cycle is removed: "<<endl;
+    print(head);
     return 0;
 }

@@ -47,7 +47,7 @@ Node *getMid(Node *head)
 {
     // Make two pointers slow and fast and initialize them with head
     Node *slow = head;
-    Node *fast = head;
+    Node *fast = head->next; // Make fast as next of slow because when slow will become next in the loop fast should become next of next otherwise there will be only a difference of one instead of two.
     // Loop till fast is not NULL
     while (fast != NULL)
     {

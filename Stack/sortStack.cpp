@@ -1,4 +1,6 @@
 /**
+ * Time Complexity: O(n^2)
+ * Space Complexity: O(n) because of the recursive call stack
  * @brief This code implements a sorting algorithm for a stack of integers.
  *        The stack is sorted in ascending order using a recursive approach.
  *        The code defines two functions: sortedInsert() and sortStack().

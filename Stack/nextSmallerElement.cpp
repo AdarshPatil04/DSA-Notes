@@ -1,4 +1,5 @@
 /**
+ * Time Complexity: O(n)
  * @brief This program finds the next smaller element for each element in an array.
  * 
  * The program uses a stack to store the elements and traverses the array from right to left.

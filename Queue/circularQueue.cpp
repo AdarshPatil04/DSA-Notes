@@ -1,3 +1,30 @@
+/**
+ * @brief This code implements a circular queue using a dynamic array.
+ * 
+ * The CircularQueue class provides methods to enqueue and dequeue elements,
+ * get the front element, and check if the queue is empty. The queue is
+ * implemented using a circular array to efficiently utilize the available
+ * space. The size of the queue is specified during object creation.
+ * 
+ * Example usage:
+ * 
+ * CircularQueue q(5);
+ * q.enqueue(10);
+ * q.enqueue(20);
+ * q.enqueue(30);
+ * q.enqueue(40);
+ * q.enqueue(50);
+ * 
+ * cout << q.dequeue() << endl; // 10
+ * cout << q.dequeue() << endl; // 20
+ * 
+ * q.enqueue(60);
+ * q.enqueue(70);
+ * 
+ * cout << q.getFront() << endl; // 30
+ * 
+ * cout << (q.isEmpty() ? "Queue is empty" : "Queue is not empty") << endl; // Queue is not empty
+ */
 #include <bits/stdc++.h>
 using namespace std;
 

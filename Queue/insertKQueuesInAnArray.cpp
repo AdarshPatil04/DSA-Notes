@@ -4,7 +4,7 @@
  *        within a single array and perform enqueue and dequeue operations on them.
  *        The code demonstrates the usage of arrays and linked lists to manage the queues.
  */
-#include<iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 // Class to implement k Queues in a single array

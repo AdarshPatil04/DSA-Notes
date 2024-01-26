@@ -1,4 +1,4 @@
-/**
+/*
  * Time Complexity: O(n)
  * Space Complexity: O(n)
  * This code demonstrates how to interleave the first half of a queue with the second half using a stack.

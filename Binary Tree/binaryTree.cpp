@@ -79,6 +79,57 @@ void levelOrderTraversal(node* root) {
     }
 }
 
+// Function to perform reverse level order traversal of the binary tree
+void reverseLevelOrderTraversal(node* root) {
+    queue<node*> q; // Queue to store the nodes of the binary tree
+    stack<node*> s; // Stack to store the nodes in reverse order
+    q.push(root); // Push the root node into the queue
+    q.push(NULL); // Push NULL into the queue to mark the end of the current level
+
+    // While the queue is not empty
+    while(!q.empty()) {
+        node* temp = q.front(); // Store the front node of the queue in temp
+        q.pop(); // Pop the front node from the queue
+
+        // If temp is NULL, push NULL into the stack if the queue is not empty
+        if(temp == NULL) {
+            if(!q.empty()) { 
+                q.push(NULL);
+                s.push(NULL);
+            }
+        }
+        else{
+            // Push the node into the stack
+            s.push(temp);
+
+            // Push the right child node into the queue before the left child node
+            if(temp->right) {
+                q.push(temp->right);
+            }
+
+            // Push the left child node into the queue
+            if(temp->left) {
+                q.push(temp->left);
+            }
+        }
+    }
+
+    // While the stack is not empty
+    while(!s.empty()) {
+        // If the node at the top of the stack is NULL, print a new line
+        if(s.top() == NULL) {
+            cout << endl;
+            s.pop();
+        }
+        else {
+            // Print the data of the node at the top of the stack
+            cout << s.top()->data << " ";
+            // Pop the node from the stack
+            s.pop();
+        }
+    }
+}
+
 // Function to perform inorder traversal of the binary tree
 void inorder(node* root) {
     // Base case: If root is NULL, return
@@ -126,8 +177,12 @@ int main() {
     root = buildTree(root);
 
     // Perform level order traversal of the binary tree
-    cout << "Printing the level order tracersal output " << endl;
+    cout << "Printing the level order traversal output " << endl;
     levelOrderTraversal(root);
+
+    // Perform reverse level order traversal of the binary tree
+    cout << "Printing the reverse level order traversal output " << endl;
+    reverseLevelOrderTraversal(root);
 
     // Perform inorder traversal of the binary tree
     cout << "inorder traversal is:  ";

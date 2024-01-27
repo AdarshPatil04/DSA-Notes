@@ -1,4 +1,22 @@
-// Including necessary libraries
+/**
+ * @file diameterOfBinaryTree.cpp
+ * @brief This file contains the implementation of finding the diameter of a binary tree.
+ * 
+ * The diameter of a binary tree is defined as the length of the longest path between any two nodes in the tree.
+ * This code calculates the diameter of a binary tree by recursively calculating the diameters of the left and right subtrees,
+ * and comparing them with the sum of the heights of the left and right subtrees plus 1.
+ * The height of a binary tree is calculated by recursively finding the maximum height of the left and right subtrees.
+ * 
+ * Example usage:
+ *     Node *root = new Node(1);
+ *     root->left = new Node(2);
+ *     root->right = new Node(3);
+ *     root->left->left = new Node(4);
+ *     root->left->right = new Node(5);
+ *     root->left->right->right = new Node(6);
+ *     root->left->right->right->right = new Node(7);
+ *     cout << diameter(root);
+ */
 #include <bits/stdc++.h>
 using namespace std;
 

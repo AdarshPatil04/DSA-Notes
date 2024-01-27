@@ -1,3 +1,11 @@
+/**
+ * @brief This program demonstrates how to build a binary tree from level order input.
+ *        It prompts the user to enter the data for each node in level order and creates
+ *        the binary tree accordingly. The program uses a queue to store the nodes of the
+ *        binary tree and performs a breadth-first search to build the tree.
+ * Input: 3 4 5 6 -1 -1 7 -1 -1 -1 -1
+ * OutputL 3 4 5 6 7
+ */
 #include <bits/stdc++.h>
 using namespace std;
 

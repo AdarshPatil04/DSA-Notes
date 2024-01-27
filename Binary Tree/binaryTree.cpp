@@ -10,6 +10,8 @@
  * The `inorder`, `preorder`, and `postorder` functions perform inorder, preorder, and postorder traversals of the binary tree, respectively. They recursively traverse the left subtree, visit the current node, and then recursively traverse the right subtree.
  *
  * The `main` function initializes a binary tree and calls the traversal functions to demonstrate their usage.
+ * Inputs: 3 4 5 -1 -1 6 -1 -1 7 8 -1 -1 9 -1 -1
+ * Outputs: 3 4 5 6 7 8 9
  */
 #include <bits/stdc++.h>
 using namespace std;

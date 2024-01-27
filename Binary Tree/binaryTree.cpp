@@ -1,136 +1,145 @@
 /**
- * @brief This code demonstrates various tree traversal algorithms (level order, inorder, preorder, postorder) on a binary tree.
- *
- * The code defines a `node` class representing a node in the binary tree. Each node has a data value and pointers to its left and right child nodes.
- *
- * The code also includes functions for level order traversal, inorder traversal, preorder traversal, and postorder traversal of the binary tree.
- *
- * The `levelOrderTraversal` function performs a level order traversal of the binary tree using a queue. It prints the nodes at each level, starting from the root.
- *
- * The `inorder`, `preorder`, and `postorder` functions perform inorder, preorder, and postorder traversals of the binary tree, respectively. They recursively traverse the left subtree, visit the current node, and then recursively traverse the right subtree.
- *
- * The `main` function initializes a binary tree and calls the traversal functions to demonstrate their usage.
- * Inputs: 3 4 5 -1 -1 6 -1 -1 7 8 -1 -1 9 -1 -1
- * Outputs: 3 4 5 6 7 8 9
+ * @file binaryTree.cpp
+ * @brief This file contains the implementation of a binary tree data structure and various tree traversal algorithms.
+ * 
+ * The binary tree is built using user input and supports level order, inorder, preorder, and postorder traversals.
+ * The main function initializes the root node, builds the binary tree, and performs the traversals.
+ * Inputs: 3 4 5 6 -1 -1 7 -1 -1 -1 -1
+ * Output: 3 4 5 6 7
  */
 #include <bits/stdc++.h>
 using namespace std;
 
-class node
-{
-public:
-    // Node with data, left and right pointers
-    int data;
-    node *left;
-    node *right;
+// Node class
+class node {
+    public:
+        int data; // Data to be stored in the node
+        node* left; // Pointer to the left child node
+        node* right; // Pointer to the right child node
 
-    // Constructor to initialize the node
-    node(int d)
-    {
-        this->data = d;
-        this->left = NULL;
-        this->right = NULL;
+    // Constructor to initialize a new node
+    node(int d) {
+        this -> data = d;
+        this -> left = NULL;
+        this -> right = NULL;
     }
 };
 
-// Function for level order traversal of the binary tree
-void levelOrderTraversal(node *root)
-{
-    // Queue to store the nodes of the binary tree and push the root node initially into the queue then push NULL
-    queue<node *> q;
-    q.push(root);
-    q.push(NULL);
+// Function to build a binary tree
+node* buildTree(node* root) {
+    // Prompt the user to enter the data
+    cout << "Enter the data: " << endl;
+    int data;
+    cin >> data;
+    // Create a new node with the entered data
+    root = new node(data);    
+
+    // If the entered data is -1, return NULL
+    if(data == -1) {
+        return NULL;
+    }
+
+    // Prompt the user to enter the data for the left and right child nodes
+    cout << "Enter data for inserting in left of " << data << endl;
+    root->left = buildTree(root->left);
+    cout << "Enter data for inserting in right of " << data << endl;
+    root->right = buildTree(root->right);
+    return root; // Return the root node of the tree
+}
+
+// Function to perform level order traversal of the binary tree
+void levelOrderTraversal(node* root) {
+    queue<node*> q; // Queue to store the nodes of the binary tree
+    q.push(root); // Push the root node into the queue
+    q.push(NULL); // Push NULL into the queue to mark the end of the current level
 
     // While the queue is not empty
-    while (!q.empty())
-    {
-        node *temp = q.front(); // Store the front element of the queue in temp
-        q.pop();                // Pop the front element of the queue
+    while(!q.empty()) {
+        node* temp = q.front(); // Store the front node of the queue in temp
+        q.pop(); // Pop the front node from the queue
 
-        // If temp is NULL, print a new line and push NULL if the queue is not empty
-        if (temp == NULL)
-        {
+        // If temp is NULL, print a new line and push NULL into the queue if it is not empty
+        if(temp == NULL) { 
             cout << endl;
-            if (!q.empty())
-            {
+            if(!q.empty()) { 
                 q.push(NULL);
-            }
+            }  
         }
-        // Else print the data of the node and push the left and right child of the node if they exist
-        else
-        {
-            cout << temp->data << " ";
-            if (temp->left)
-            {
-                q.push(temp->left);
+        else{
+            // Print the data of the node and push its left and right child nodes into the queue if they exist
+            cout << temp -> data << " ";
+            if(temp ->left) {
+                q.push(temp ->left);
             }
 
-            if (temp->right)
-            {
-                q.push(temp->right);
+            if(temp ->right) {
+                q.push(temp ->right);
             }
         }
     }
 }
 
-// Function for inorder traversal of the binary tree
-void inorder(node *root)
-{
-    // Base case
-    // If root is NULL, return
-    if (root == NULL)
-    {
-        return;
+// Function to perform inorder traversal of the binary tree
+void inorder(node* root) {
+    // Base case: If root is NULL, return
+    if(root == NULL) {
+        return ;
     }
 
-    // Recursive case
-    // LNR
+    // Recursive case: Perform inorder traversal on the left subtree, print the data of the node, and then perform inorder traversal on the right subtree
     inorder(root->left);
-    cout << root->data << " ";
+    cout << root-> data << " ";
     inorder(root->right);
 }
 
-// Function for preorder traversal of the binary tree
-void preorder(node *root)
-{
-    // Base case
-    // If root is NULL, return
-    if (root == NULL)
-    {
-        return;
+// Function to perform preorder traversal of the binary tree
+void preorder(node* root) {
+    // Base case: If root is NULL, return
+    if(root == NULL) {
+        return ;
     }
 
-    // Recursive case
-    // NLR
-    cout << root->data << " ";
+    // Recursive case: Print the data of the node, perform preorder traversal on the left subtree, and then perform preorder traversal on the right subtree
+    cout << root-> data << " ";
     preorder(root->left);
     preorder(root->right);
 }
 
-// Function for postorder traversal of the binary tree
-void postorder(node *root)
-{
-    // Base case
-    // If root is NULL, return
-    if (root == NULL)
-    {
-        return;
+// Function to perform postorder traversal of the binary tree
+void postorder(node* root) {
+    // Base case: If root is NULL, return
+    if(root == NULL) {
+        return ;
     }
 
-    // // Recursive case
-    // LRN
+    // Recursive case: Perform postorder traversal on the left subtree, perform postorder traversal on the right subtree, and then print the data of the node
     postorder(root->left);
     postorder(root->right);
-    cout << root->data << " ";
+    cout << root-> data << " ";
 }
 
-int main()
-{
-    node *root = NULL;
-    // Assume root is initialized properly
+// Main function
+int main() {
+    node* root = NULL; // Initialize the root node to NULL
+
+    // Build the binary tree
+    root = buildTree(root);
+
+    // Perform level order traversal of the binary tree
+    cout << "Printing the level order tracersal output " << endl;
     levelOrderTraversal(root);
-    inorder(root);
-    preorder(root);
-    postorder(root);
+
+    // Perform inorder traversal of the binary tree
+    cout << "inorder traversal is:  ";
+    inorder(root); 
+
+    // Perform preorder traversal of the binary tree
+    cout << endl << "preorder traversal is:  ";
+    preorder(root); 
+
+    // Perform postorder traversal of the binary tree
+    cout << endl << "postorder traversal is:  ";
+    postorder(root); 
+
     return 0;
 }

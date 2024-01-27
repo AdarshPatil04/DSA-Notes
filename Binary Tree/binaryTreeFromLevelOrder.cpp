@@ -63,8 +63,41 @@ void buildFromLevelOrder(node* &root) {
     }
 }
 
+// Function to perform level order traversal of the binary tree
+void levelOrderTraversal(node* root) {
+    queue<node*> q; // Queue to store the nodes of the binary tree
+    q.push(root); // Push the root node into the queue
+    q.push(NULL); // Push NULL into the queue to mark the end of the current level
+
+    // While the queue is not empty
+    while(!q.empty()) {
+        node* temp = q.front(); // Store the front node of the queue in temp
+        q.pop(); // Pop the front node from the queue
+
+        // If temp is NULL, print a new line and push NULL into the queue if it is not empty
+        if(temp == NULL) { 
+            cout << endl;
+            if(!q.empty()) { 
+                q.push(NULL);
+            }  
+        }
+        else{
+            // Print the data of the node and push its left and right child nodes into the queue if they exist
+            cout << temp -> data << " ";
+            if(temp ->left) {
+                q.push(temp ->left);
+            }
+
+            if(temp ->right) {
+                q.push(temp ->right);
+            }
+        }
+    }
+}
+
 int main() {
     node* root = NULL;
     buildFromLevelOrder(root); // Build the binary tree from level order input
+    levelOrderTraversal(root); // Print the binary tree in level order
     return 0;
 }

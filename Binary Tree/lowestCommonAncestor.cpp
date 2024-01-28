@@ -1,3 +1,14 @@
+/**
+ * Time Complexity: O(n)
+ * Space Complexity: O(n)
+ * @file lowestCommonAncestor.cpp
+ * @brief This file contains the implementation of finding the lowest common ancestor (LCA) in a binary tree.
+ * 
+ * The code defines a binary tree node structure and a function to find the LCA of two given nodes in the tree.
+ * The LCA is the lowest node in the tree that has both given nodes as descendants.
+ * The main function creates a binary tree and finds the LCA of two nodes (4 and 5) in the tree.
+ * If the LCA exists, it prints the data of the LCA node; otherwise, it prints a message indicating that the LCA doesn't exist.
+ */
 #include <bits/stdc++.h>
 using namespace std;
 

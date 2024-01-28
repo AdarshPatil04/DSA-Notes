@@ -1,3 +1,11 @@
+/**
+ * @brief This code demonstrates how to find the right view of a binary tree.
+ * 
+ * The right view of a binary tree is the set of nodes visible when the tree is viewed from the right side.
+ * The code defines a Node class to represent the structure of a node in the binary tree.
+ * It also includes a recursive function to fill a vector with the right view of the binary tree.
+ * The main function creates a binary tree, calls the rightView function, and prints the right view.
+ */
 #include <bits/stdc++.h>
 using namespace std;
 

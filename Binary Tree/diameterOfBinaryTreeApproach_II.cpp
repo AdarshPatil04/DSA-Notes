@@ -1,3 +1,13 @@
+/**
+ * Time Complexity: O(n)
+ * Space Complexity: O(height of the tree)
+ * @brief This program calculates the diameter of a binary tree.
+ * 
+ * The diameter of a binary tree is defined as the length of the longest path between any two nodes in the tree.
+ * This program uses a recursive approach to calculate the diameter of the binary tree.
+ * It defines a structure for tree nodes and provides functions to create new nodes and calculate the diameter.
+ * The main function creates a binary tree and prints the diameter of the tree.
+ */
 #include<bits/stdc++.h>
 using namespace std;
 

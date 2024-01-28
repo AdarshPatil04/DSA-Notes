@@ -86,6 +86,6 @@ int main()
 
     // Printing the height of the binary tree
     cout << "Height of tree is " << height(root) << endl;
-    cout << "Is the tree balanced? " << isBalanced(root) << endl;
+    cout << "Is the tree balanced? " << (isBalanced(root) ? "Yes" : "No") << endl;
     return 0;
 }

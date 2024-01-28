@@ -1,3 +1,12 @@
+
+/**
+ * @brief This code demonstrates how to find the left view of a binary tree.
+ * 
+ * The left view of a binary tree is the set of nodes visible when the tree is viewed from the left side.
+ * The code defines a Node class to represent the structure of a node in the binary tree.
+ * It also includes a recursive function to fill a vector with the nodes in the left view of the tree.
+ * The main function creates a binary tree, calls the leftView function, and prints the left view of the tree.
+ */
 #include <bits/stdc++.h>
 using namespace std;
 

@@ -1,4 +1,6 @@
 /**
+ * Time complexity: O(n)
+ * Space complexity: O(n) which is the space acquired by the height of the tree
  * @file identicalTree.cpp
  * @brief This file contains the implementation of a function to check if two binary trees are identical.
  * 

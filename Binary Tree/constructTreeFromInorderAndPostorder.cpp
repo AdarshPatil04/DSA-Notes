@@ -26,7 +26,7 @@ public:
     }
 };
 
-// Function to create a mapping from node data to its index in the inorder traversal
+// Function to create a mapping from node data to its index in the inorder traversal, using map for O(1) access
 void createMapping(int in[], map<int, int> &nodeToIndex, int n)
 {
     for (int i = 0; i < n; i++)

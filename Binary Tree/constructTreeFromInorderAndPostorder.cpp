@@ -1,4 +1,6 @@
 /**
+ * Time Complexity: O(nlogn) because we are using map with logn access time inside a for loop with O(n)
+ * Space Complexity: O(n) because we are using map with O(n) space and recursion stack with O(n) space
  * @brief This program demonstrates the construction of a binary tree from its inorder and preorder traversals.
  *
  * The program defines a Node class to represent a node in the binary tree. It also includes functions to create a mapping from node data to its index in the inorder traversal,

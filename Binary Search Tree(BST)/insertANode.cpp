@@ -4,7 +4,7 @@
  *        It allows the user to insert elements into the BST and performs various traversals
  *        such as level order, inorder, preorder, and postorder traversal.
  *        The program takes input from the user to build the BST and then prints the traversals.
- * 
+ *
  *        The Node class defines the structure of a Node in the binary tree, with data, left,
  *        and right pointers. The insertIntoBST function inserts a new Node into the BST based
  *        on the value of the data. The takeInput function takes input from the user to build
@@ -24,7 +24,7 @@
  * 1 3 6 8 7 5
  * @return 0 on successful execution
  */
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 // Define the structure of a Node in the binary tree
@@ -157,18 +157,18 @@ void printPostorder(Node *root)
 int main()
 {
     Node *root = NULL; // Initialize the root of the binary tree to NULL
-    cout<<"Enter the elements of the BST: "<<endl;
+    cout << "Enter the elements of the BST: " << endl;
     takeInput(root); // Take the elements of the BST as input from the user
-    cout << "Level Order traversal of the BST: "<<endl;
+    cout << "Level Order traversal of the BST: " << endl;
     levelOrderTraversal(root); // Print the level order traversal of the BST
-    cout << "Inorder traversal of the BST: "<<endl;
+    cout << "Inorder traversal of the BST: " << endl;
     printInorder(root); // Print the inorder traversal of the BST
-    cout<<endl;
-    cout << "Preorder traversal of the BST: "<<endl;
+    cout << endl;
+    cout << "Preorder traversal of the BST: " << endl;
     printPreorder(root); // Print the preorder traversal of the BST
-    cout<<endl;
-    cout << "Postorder traversal of the BST: "<<endl;
+    cout << endl;
+    cout << "Postorder traversal of the BST: " << endl;
     printPostorder(root); // Print the postorder traversal of the BST
-    cout<<endl;
+    cout << endl;
     return 0;
 }

@@ -31,6 +31,7 @@ public:
 };
 
 // Function to flatten the binary tree into a linked list in-place
+// It changes the structure of the binary tree by using curr and by taking the same root node as input
 void flatten(Node* root){
     Node* curr = root; // Start from the root
     while(curr!=NULL){

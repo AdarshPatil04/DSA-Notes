@@ -1,5 +1,5 @@
-
 /**
+ * Time complexity: O(logn), same reason as binarySearch.cpp
  * @brief This program demonstrates the implementation of a Binary Search Tree (BST).
  *        It allows the user to insert elements into the BST and performs various traversals
  *        such as level order, inorder, preorder, and postorder traversal.

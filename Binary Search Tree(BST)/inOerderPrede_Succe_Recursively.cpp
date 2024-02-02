@@ -1,5 +1,7 @@
 /**
- * This code demonstrates how to find the predecessor and successor of a given node in a binary search tree (BST).
+ * Time Complexity: O(h)
+ * Space Complexity: O(n)
+ * This code demonstrates how to find the predecessor and successor of a given node in a binary search tree (BST) using recursion.
  * It defines a Node class to represent each node in the BST and provides functions to find the minimum and maximum value nodes in a tree/subtree.
  * The findPredecessor function finds the predecessor of a given node by finding the maximum value node in its left subtree.
  * The findSuccessor function finds the successor of a given node by finding the minimum value node in its right subtree.

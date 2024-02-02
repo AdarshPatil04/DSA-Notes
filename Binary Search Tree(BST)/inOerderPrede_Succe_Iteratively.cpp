@@ -77,6 +77,18 @@ pair<int, int> predecessorSuccessor(Node *root, int key)
     return {pred, succ};
 }
 
+// Function to print the inorder traversal of the binary tree
+void printInorder(Node *root)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+    printInorder(root->left);  // visit left subtree
+    cout << root->data << " "; // print data of root
+    printInorder(root->right); // visit right subtree
+}
+
 int main()
 {
     // Construct the binary search tree
@@ -86,7 +98,9 @@ int main()
     root->right = new Node(7);
     root->right->left = new Node(6);
     root->right->right = new Node(8);
-
+    printInorder(root);
+    cout<<endl;
+    
     // Find the predecessor and successor of 6 in the binary search tree
     pair<int, int> ans = predecessorSuccessor(root, 6);
 

@@ -1,3 +1,15 @@
+/**
+ * Time Complexity: O(n)
+ * Space Complexity: O(n)
+ * @brief This program demonstrates the conversion of a normal binary search tree (BST) into a balanced BST.
+ * 
+ * The program defines a Node structure for the binary tree and provides functions to perform inorder traversal,
+ * convert a sorted array to a balanced BST, convert a binary tree to a balanced BST, and print the level order
+ * traversal and inorder traversal of the binary tree.
+ * 
+ * The main function constructs a binary tree, prints its level order traversal before balancing, performs the
+ * balancing operation, and prints the level order traversal after balancing.
+ */
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -35,27 +47,34 @@ void inorder(Node *root, vector<int> &in)
     inorder(root->right, in);
 }
 
+// Function to convert a sorted array to a balanced binary search tree
 Node *inorderToBST(int s, int e, vector<int> &v)
 {
+    // Base case: if start index is greater than end index, return null
     if (s > e)
         return NULL;
 
+    // Calculate the middle index
     int mid = (s + e) / 2;
 
+    // Create a new node with the middle element
     Node *newRoot = new Node(v[mid]);
 
+    // Recursively construct the left and right subtrees
     newRoot->left = inorderToBST(s, mid - 1, v);
     newRoot->right = inorderToBST(mid + 1, e, v);
     return newRoot;
 }
 
+// Function to convert a binary tree to a balanced binary search tree
 Node *balancedBst(Node *root)
 {
     vector<int> v;
 
-    // store inorder -> sorted values
+    // Store the inorder traversal of the binary tree in a vector
     inorder(root, v);
 
+    // Convert the sorted array to a balanced binary search tree
     return inorderToBST(0, v.size() - 1, v);
 }
 
@@ -81,7 +100,7 @@ void levelOrderTraversal(Node *root)
         }
         else
         {
-            cout << temp->data << " ";  
+            cout << temp->data << " ";
             if (temp->left)
                 q.push(temp->left);
             if (temp->right)
@@ -116,7 +135,7 @@ int main()
     cout << "Level order traversal of the binary tree before balancing:" << endl;
     levelOrderTraversal(root);
     root = balancedBst(root);
-    cout << "Level order traversal of the binary tree before balancing:" << endl;
+    cout << "Level order traversal of the binary tree after balancing:" << endl;
     levelOrderTraversal(root);
     return 0;
 }

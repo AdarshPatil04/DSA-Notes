@@ -29,61 +29,6 @@ public:
     }
 };
 
-// Function to perform inorder traversal of the binary tree
-void inorder(Node *root, vector<int> &in)
-{
-    if (root == NULL)
-    {
-        return;
-    }
-
-    // First recur for left subtree
-    inorder(root->left, in);
-    // Then store the data of node
-    in.push_back(root->data);
-    // Now recur for right subtree
-    inorder(root->right, in);
-}
-
-// Function to perform level order traversal (Breadth-First Search) of the binary tree
-void levelOrderTraversal(Node *root)
-{
-    queue<Node *> q; // Queue to store the Nodes of the binary tree
-    q.push(root);    // Push the root Node into the queue
-    q.push(NULL);    // Push NULL into the queue to mark the end of the current level
-
-    // While the queue is not empty
-    while (!q.empty())
-    {
-        Node *temp = q.front(); // Store the front Node of the queue in temp
-        q.pop();                // Pop the front Node from the queue
-
-        // If temp is NULL, print a new line and push NULL into the queue if it is not empty
-        if (temp == NULL)
-        {
-            cout << endl;
-            if (!q.empty())
-            {
-                q.push(NULL);
-            }
-        }
-        else
-        {
-            // Print the data of the Node and push its left and right child Nodes into the queue if they exist
-            cout << temp->data << " ";
-            if (temp->left)
-            {
-                q.push(temp->left);
-            }
-
-            if (temp->right)
-            {
-                q.push(temp->right);
-            }
-        }
-    }
-}
-
 // Function to merge two sorted arrays
 vector<int> mergeArrays(vector<int> &a, vector<int> &b)
 {
@@ -143,6 +88,22 @@ Node *inorderToBST(int s, int e, vector<int> &in)
     return root;
 }
 
+// Function to perform inorder traversal of the binary tree
+void inorder(Node *root, vector<int> &in)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+
+    // First recur for left subtree
+    inorder(root->left, in);
+    // Then store the data of node
+    in.push_back(root->data);
+    // Now recur for right subtree
+    inorder(root->right, in);
+}
+
 // Function to merge two BSTs into a single BST
 Node *mergeBST(Node *root1, Node *root2)
 {
@@ -162,15 +123,58 @@ Node *mergeBST(Node *root1, Node *root2)
     return inorderToBST(s, e, mergeArray);
 }
 
+// Function to perform level order traversal (Breadth-First Search) of the binary tree
+void levelOrderTraversal(Node *root)
+{
+    queue<Node *> q; // Queue to store the Nodes of the binary tree
+    q.push(root);    // Push the root Node into the queue
+    q.push(NULL);    // Push NULL into the queue to mark the end of the current level
+
+    // While the queue is not empty
+    while (!q.empty())
+    {
+        Node *temp = q.front(); // Store the front Node of the queue in temp
+        q.pop();                // Pop the front Node from the queue
+
+        // If temp is NULL, print a new line and push NULL into the queue if it is not empty
+        if (temp == NULL)
+        {
+            cout << endl;
+            if (!q.empty())
+            {
+                q.push(NULL);
+            }
+        }
+        else
+        {
+            // Print the data of the Node and push its left and right child Nodes into the queue if they exist
+            cout << temp->data << " ";
+            if (temp->left)
+            {
+                q.push(temp->left);
+            }
+
+            if (temp->right)
+            {
+                q.push(temp->right);
+            }
+        }
+    }
+}
+
 int main()
 {
-    // Create the first BST
+    // Create a Binary Search Tree (BST) as shown below
+    //       5
+    //      / \
+    //     3   6
+    //    / \   \
+    //   2   4   8
     Node *root1 = new Node(5);
     root1->left = new Node(3);
-    root1->right = new Node(7);
-    root1->left->left = new Node(1);
+    root1->right = new Node(6);
+    root1->left->left = new Node(2);
     root1->left->right = new Node(4);
-    root1->right->left = new Node(6);
     root1->right->right = new Node(8);
     cout << "Inorder Traversal of the first BST: " << endl;
     vector<int> in1;
@@ -179,16 +183,18 @@ int main()
     {
         cout << in1[i] << " ";
     }
-    // Create the second BST
-    Node *root2 = new Node(10);
-    root2->left = new Node(9);
-    root2->right = new Node(11);
-    root2->left->left = new Node(8);
-    root2->left->right = new Node(12);
-    root2->right->left = new Node(7);
-    root2->right->right = new Node(13);
-    cout << endl
-         << "Inorder Traversal of the second BST: " << endl;
+    // Create another Binary Search Tree (BST) as shown below
+    //       7
+    //      / \
+    //     1   9
+    //      \
+    //       5
+    Node *root2 = new Node(7);
+    root2->left = new Node(1);
+    root2->right = new Node(9);
+    root2->left->right = new Node(5);
+    Node* temp2 = root2;
+    cout << "Inorder Traversal of the second BST: " << endl;
     vector<int> in2;
     inorder(root2, in2);
     for (int i = 0; i < in2.size(); i++)

@@ -1,6 +1,6 @@
 /**
  * Time Complexity: O(nlogk)
- * Space Complexity: O(n)
+ * Space Complexity: O(k)
  * @brief This program finds the kth largest element in an array using a min heap.
  * 
  * The program uses a priority queue (min heap) to store the k largest elements from the array.

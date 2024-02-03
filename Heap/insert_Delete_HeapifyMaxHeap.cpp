@@ -169,6 +169,7 @@ int main()
     int arr[6] = {-1, 54, 53, 55, 52, 50}; // Create an array
     int n = 5;                             // Set the size of the array
 
+    // Time Complexity -> O(n)
     // For 1-based indexing -> go from n/2 to 0 -> below written
     // For 0-based indexing -> go from n/2-1 to 0
     for (int i = n / 2; i > 0; i--)

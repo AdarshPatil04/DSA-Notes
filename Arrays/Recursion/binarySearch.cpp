@@ -37,7 +37,7 @@ int binarySearch(int *arr, int s, int e, int key)
         return binarySearch(arr, s, mid - 1, key);
     }
 
-    // key > arr[mid]
+    // key >= arr[mid]
     // if key is greater than arr[mid] then it will be present in the right half
     else
     {

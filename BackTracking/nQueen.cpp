@@ -1,3 +1,16 @@
+/*
+This C++ code solves the N-Queens problem using backtracking. The N-Queens problem is the problem of placing N chess queens on an N×N chessboard so that no two queens threaten each other. Thus, a solution requires that no two queens share the same row, column, or diagonal.
+
+The `solveNQueens` function returns all distinct solutions to the N-Queens puzzle. Each solution contains a distinct board configuration of the N-Queens' placement, where '1' and '0' indicate a queen and an empty space, respectively.
+
+The `isSafe` function checks if a queen can be placed on `board[row][col]`. It checks the row on the left side, the lower diagonal on the left side, and the upper diagonal on the left side.
+
+The `addSolution` function stores the solution in the answers array.
+
+The `solve` function is a recursive function to solve the N-Queens problem. It places a queen in a column, and then makes a recursive call to place the rest of the queens. If placing a queen in a certain position doesn't lead to a solution, it removes the queen from that position (backtracks) and tries the next position.
+
+The `main` function calls the `solveNQueens` function with `n=4` and prints the solutions. Each solution is printed on a new line. In each solution, the positions of the queens are represented by '1's and the empty spaces are represented by '0's. The positions are printed in a row-major order.
+*/
 #include <bits/stdc++.h>
 using namespace std;
 

@@ -1,4 +1,6 @@
 /*
+Backing Tracking: Time Complexity: O(N!) and Space Complexity: O(N*N)
+Optimized: Time Complexity: O(N!)
 This C++ code solves the N-Queens problem using backtracking. The N-Queens problem is the problem of placing N chess queens on an N×N chessboard so that no two queens threaten each other. Thus, a solution requires that no two queens share the same row, column, or diagonal.
 
 The `solveNQueens` function returns all distinct solutions to the N-Queens puzzle. Each solution contains a distinct board configuration of the N-Queens' placement, where '1' and '0' indicate a queen and an empty space, respectively.

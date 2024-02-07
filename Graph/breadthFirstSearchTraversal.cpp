@@ -76,7 +76,7 @@ int main()
     int vertex = 6;                                                          // Number of vertices
     vector<pair<int, int>> edges = {{0, 1}, {1, 2}, {1, 3}, {1, 4}, {2, 5}}; // Edges
     vector<int> ans = BFS(vertex, edges);                                    // Perform BFS
-
+    cout << "The order of visited nodes is in sorted order: ";
     for (auto i : ans) // Print the order of visited nodes
     {
         cout << i << " ";

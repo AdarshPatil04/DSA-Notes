@@ -26,7 +26,7 @@ void bfs(unordered_map<int, set<int>> &adjList, unordered_map<int, bool> &visite
 
         ans.push_back(frontNode); // Add the visited node to the answer
 
-        // Traverse all the neighbours of frontNode
+        // Traverse all the neighbors of frontNode
         for (auto i : adjList[frontNode])
         {
             if (!visited[i]) // If the neighbour has not been visited

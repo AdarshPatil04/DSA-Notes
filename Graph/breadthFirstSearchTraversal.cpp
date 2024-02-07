@@ -5,6 +5,7 @@
  * The code uses an adjacency list to represent the graph and a queue to store the nodes to visit.
  * The BFS algorithm visits all the nodes in the graph in a breadth-first manner, i.e., it visits all the nodes at the same level before moving to the next level.
  * The code returns the order in which the nodes are visited during the BFS traversal.
+ * The answer is sorted in ascending order.
  */
 // https://www.codingninjas.com/codestudio/problems/bfs-in-graph_973002
 

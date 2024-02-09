@@ -1,7 +1,5 @@
 /**
- * The time complexity is O(N+E) where N is the number of vertices and E is the number of edges.
- * The space complexity is O(N+E) for storing the graph, O(N) for the queue and visited array, and O(N) for the parent map.
- * This program finds the shortest path in an unweighted graph using Breadth-First Search (BFS).
+ * This program finds the shortest path in an unweighted graph using modified Breadth-First Search (BFS).
  * The time complexity is O(N+E) where N is the number of vertices and E is the number of edges.
  * The space complexity is O(N+E) for storing the graph, O(N) for the queue and visited array, and O(N) for the parent map.
  */

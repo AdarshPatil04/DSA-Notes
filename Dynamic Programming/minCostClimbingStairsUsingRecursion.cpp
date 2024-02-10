@@ -1,5 +1,4 @@
 /**
- * The code has a time complexity of O(N) and space Complexity will be O(N) + O(N) = O(N).
  * This code solves the problem of finding the minimum cost to climb a set of stairs.
  * The cost to climb each step is given in the 'cost' vector.
  * The code uses a recursive approach to calculate the minimum cost by considering two cases:

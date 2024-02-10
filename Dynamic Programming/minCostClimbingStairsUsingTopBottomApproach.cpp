@@ -1,6 +1,5 @@
 /**
- * Time Complexity: O(n)
- * Space Complexity: O(n)
+ * The code has a time complexity of O(N) and space Complexity will be O(N) + O(N) = O(N).
  * This code solves the problem of finding the minimum cost to climb a set of stairs.
  * The cost to climb each step is given in the form of an array.
  * The code uses dynamic programming with a top-down approach to solve the problem.

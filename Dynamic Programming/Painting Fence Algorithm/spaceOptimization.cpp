@@ -6,8 +6,6 @@
  * The code implements a dynamic programming approach with space optimization, reducing the space complexity to O(1).
  * It defines functions to add and multiply numbers with modulo operation, and a solveSO function to calculate the number of ways using the space optimization technique.
  * The main function initializes the number of fences and colors, calls the solveSO function, and prints the result.
- *
- *
  * @param n The number of fences
  * @param k The number of colors
  * @return The number of ways to paint the fences

@@ -14,8 +14,6 @@ using namespace std;
 #define MOD 1000000007
 
 // Recursive function to calculate the number of derangements using memoization
-// Time Complexity => O(N)
-// Space Complexity => O(N)+O(N) -> for recursion depth + dp-array
 long long int solveMem(int n, vector<long long int> &dp)
 {
     // Base case: If there is only one element, there are no derangements

@@ -1,6 +1,6 @@
 /**
  * Time Complexity: O(N*W)
- * Space Complexity: O(N*W)
+ * Space Complexity: O(N*W) + O(N*W)
  * This code solves the 0/1 Knapsack problem using memoization technique.
  * The 0/1 Knapsack problem is a classic optimization problem where we have a set of items,
  * each with a weight and a value, and we want to determine the maximum value we can obtain

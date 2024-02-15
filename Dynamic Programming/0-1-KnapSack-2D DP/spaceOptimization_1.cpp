@@ -1,6 +1,6 @@
 /**
  * Time Complexity: O(N*W), where N is the number of items and W is the maximum weight
- * Space Complexity: O(maxWeight) for the dp array
+ * Space Complexity: O(2*maxWeight) for the dp array
  * This code solves the 0/1 Knapsack problem using tabulation with space optimization.
  * Given a set of items, each with a weight and a value, the goal is to determine the maximum value
  * that can be obtained by selecting a subset of the items such that the sum of the weights of the

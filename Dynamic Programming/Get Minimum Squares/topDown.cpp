@@ -37,7 +37,7 @@ int solveMem(int n, vector<int> &dp)
     dp[n] = ans;
 
     // Return the answer
-    return ans;
+    return dp[n];
 }
 
 // Function to get the minimum number of squares

@@ -47,7 +47,6 @@ int minimumCoins(int n, vector<int> days, vector<int> cost)
     return solveRec(n, days, cost, 0);
 }
 
-// Main function
 int main()
 {
     // Test the function with a sample testcase

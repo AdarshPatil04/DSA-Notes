@@ -1,5 +1,6 @@
 /**
- * Time complexity: O(1) because the number of days is fixed that is 365
+ * Time complexity: O(n), where n is the total number of days.
+ * Space complexity: O(n).
  * This code solves the problem of finding the minimum cost to travel every day in a given list of days.
  * The problem is solved using the tabulation (bottom-up) approach of dynamic programming.
  * The code takes the total number of days, an array of days, and an array of costs as input.

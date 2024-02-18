@@ -1,9 +1,16 @@
+/**
+ * The code uses a space-optimized approach to solve the problem in O(n^2) time complexity and O(n) space complexity.
+ * This code implements a dynamic programming solution to the "Reducing Dishes" problem.
+ * The problem is to find the maximum total satisfaction that can be obtained by cooking a sequence of dishes.
+ * Each dish has a satisfaction level, and the cooking time for each dish is equal to its position in the sequence.
+ * It sorts the satisfaction levels in ascending order to ensure that the dishes with the least satisfaction are cooked first.
+ * The code then iterates over the dishes from right to left, calculating the maximum satisfaction gained by including or excluding each dish.
+ * The maximum total satisfaction is returned as the output.
+ */
 #include <bits/stdc++.h>
 using namespace std;
 
 // Function to solve the problem using space optimization
-// Time Complexity => O(n^2)
-// Space Complexity => O(n)
 int solveSO(vector<int> &satisfaction)
 {
     // Total number of dishes

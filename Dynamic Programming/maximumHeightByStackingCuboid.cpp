@@ -24,8 +24,6 @@ bool check(vector<int> base, vector<int> newBox)
 }
 
 // Function to solve the problem using space optimization
-// Time Complexity => O(n^2)
-// Space Complexity => O(n)
 int solveSO(int n, vector<vector<int>> &cuboids)
 {
     // Initialize the current and next rows with 0

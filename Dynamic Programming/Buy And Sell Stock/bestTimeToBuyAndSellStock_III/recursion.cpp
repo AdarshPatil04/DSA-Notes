@@ -1,5 +1,6 @@
 /**
  * The time complexity of the code is O(2^n) and the space complexity is O(n) due to the recursive call stack.
+ * Atmost 2 transactions are allowed that is 2 times buy and 2 times sell with buy first and then sell.
  * This code solves the problem of finding the maximum profit that can be obtained by buying and selling stocks.
  * It uses a recursive approach to explore all possible buying and selling combinations.
  * The function maxProfit takes a vector of stock prices as input and returns the maximum profit.

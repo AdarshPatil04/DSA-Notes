@@ -1,5 +1,5 @@
 /**
- * The time complexity of the solution is O(n) , where n is the number of prices.
+ * The time complexity of the solution is O(n), where n is the number of prices.
  * The space complexity of the solution is O(1), as it uses a constant amount of space for the dynamic programming arrays.
  * This code implements a solution to the problem of finding the maximum profit that can be obtained by buying and selling stocks.
  * The solution uses dynamic programming with tabulation and space optimization to efficiently compute the maximum profit.

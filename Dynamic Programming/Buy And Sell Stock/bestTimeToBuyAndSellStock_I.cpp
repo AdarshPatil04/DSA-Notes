@@ -2,6 +2,7 @@
  * The time complexity of this code is O(n), where n is the number of prices in the input vector.
  * The space complexity is O(1) as it uses constant space to store the minimum price and the maximum profit.
  * This code calculates the maximum profit that can be obtained by buying and selling stocks.
+ * Ones can buy only once and sell only once.
  * It uses the concept of dynamic programming to find the maximum difference between the prices of stocks.
  */
 // https://leetcode.com/problems/best-time-to-buy-and-sell-stock/

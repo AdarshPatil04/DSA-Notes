@@ -1,73 +1,60 @@
+/*
+The time complexity of the code is O(2^nk), where n is the number of days and k is the maximum number of transactions allowed. The space complexity is O(n*k), which is the space used by the maximum depth of the recursive tree.
+ * This code implements a recursive solution to the problem of finding the maximum profit
+ * that can be obtained by buying and selling stocks. The problem is defined as follows:
+ * Given an array of stock prices and the maximum number of transactions allowed, find the
+ * maximum profit that can be obtained by buying and selling stocks. Each transaction consists
+ * of buying a stock and then selling it later at a higher price. The code uses a recursive
+ * approach to explore all possible combinations of buying and selling stocks, keeping track
+ * of the maximum profit obtained so far.
+*/
 // https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/
 
 #include <bits/stdc++.h>
 using namespace std;
 
-// Function to solve the problem with tabulation and space optimization
-// Time Complexity => O(n*k)
-// Space Complexity => O(k)
-int solveSOPrev(int k, vector<int> &prices)
+// Recursive function to calculate maximum profit
+int solveRec(int k, vector<int> &prices, int index, int operationNo)
 {
-    // Get the size of the prices
     int n = prices.size();
-    // Initialize the current and next dp arrays for tabulation
-    vector<vector<int>> curr(2, vector<int>(k + 1, 0));
-    vector<vector<int>> next(2, vector<int>(k + 1, 0));
+    // Base case: If we have traversed through all the days or we have done all the operations, we return 0
+    if (index == n || operationNo == 2 * k)
+        return 0;
 
-    // Iterate from the end to the start of the prices
-    for (int index = n - 1; index >= 0; index--)
+    int profit = INT_MIN;
+    if ((operationNo & 1) == 0)
     {
-        // For each price, iterate over the flags (0 and 1)
-        for (int buy = 0; buy <= 1; buy++)
-        {
-            // For each flag, iterate over the limits (1 to k)
-            for (int operationNo = 1; operationNo <= k; operationNo++)
-            {
-                int profit = 0;
-                if (buy)
-                {
-                    // If buy is 1, we can buy or skip
-                    // Calculate the profit for buying (subtract the current price from the profit for the next day with buy 0)
-                    // and for skipping (the profit for the next day with buy 1)
-                    int doBuy = -prices[index] + next[0][operationNo];
-                    int skipBuy = 0 + next[1][operationNo];
-                    // Update the profit with the maximum value between the profit for buying and skipping
-                    profit = max(doBuy, skipBuy);
-                }
-                else
-                {
-                    // If buy is 0, we can sell or skip
-                    // Calculate the profit for selling (add the current price to the profit for the next day with buy 1 and operationNo decreased by 1)
-                    // and for skipping (the profit for the next day with buy 0)
-                    int doSell = +prices[index] + next[1][operationNo - 1];
-                    int skipSell = 0 + next[0][operationNo];
-                    // Update the profit with the maximum value between the profit for selling and skipping
-                    profit = max(doSell, skipSell);
-                }
-                // Store the computed profit for the current day, buy, and operationNo in the current dp array
-                curr[buy][operationNo] = profit;
-            }
-        }
-        // Update the next dp array with the current dp array
-        next = curr;
+        // If operationNo is even, we can buy or skip
+        // If we buy, we subtract the price from our total profit and increment the operationNo
+        int doBuy = -prices[index] + solveRec(k, prices, index + 1, operationNo + 1);
+        // If we skip, we move to the next day with the same operationNo
+        int skipBuy = 0 + solveRec(k, prices, index + 1, operationNo);
+        // We take the maximum of the two options
+        profit = max(doBuy, skipBuy);
     }
-    // Return the profit for the first day with buy 1 and operationNo k
-    return next[1][k];
+    else
+    {
+        // If operationNo is odd, we can sell or skip
+        // If we sell, we add the price to our total profit and increment the operationNo
+        int doSell = +prices[index] + solveRec(k, prices, index + 1, operationNo + 1);
+        // If we skip, we move to the next day with the same operationNo
+        int skipSell = 0 + solveRec(k, prices, index + 1, operationNo);
+        // We take the maximum of the two options
+        profit = max(doSell, skipSell);
+    }
+    return profit;
 }
 
-// Function to get the maximum profit
 int maxProfit(int k, vector<int> &prices)
 {
-    // Call the tabulation function with space optimization to solve the problem
-    return solveSOPrev(k, prices);
+    // Call the recursive function with the initial operationNo set to 0 (we can buy on the first day)
+    return solveRec(k, prices, 0, 0);
 }
 
-// Main function
 int main()
 {
-    // Define the prices
+    // Test case
     vector<int> prices = {3, 2, 6, 5, 0, 3};
-    // Define the maximum number of transactions
     int k = 2;
     // Print the maximum profit
     cout << maxProfit(k, prices) << endl;

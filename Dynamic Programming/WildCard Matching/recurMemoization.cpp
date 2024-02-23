@@ -1,6 +1,6 @@
 /**
- *  // Time Complexity => O(2^(n+m))
-    // Space Complexity => O(n+m) -> recursive call stack
+ * // Time Complexity => O(n*m)
+    // Space Complexity => O(n*m)
  * This code implements the wildcard matching algorithm using recursive memoization.
  * Given a string 's' and a pattern 'p' containing wildcard characters '*', '?',
  * the code checks if the string 's' matches the pattern 'p'.

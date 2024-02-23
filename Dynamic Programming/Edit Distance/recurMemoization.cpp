@@ -1,4 +1,6 @@
 /**
+ * //Time Complexity => O(n*m)
+    //Space Complexity => O(n*m)
  * This code calculates the minimum number of operations (insertions, deletions, and substitutions)
  * required to transform one word into another using memoization technique.
  * The code uses a recursive approach with memoization to solve the problem efficiently.

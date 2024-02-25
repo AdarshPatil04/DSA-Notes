@@ -1,5 +1,5 @@
 # DSA-Notes
-The codes to revise DSA(Complete C++ Placement DSA Course-CodeHelp-by Babbar)
+The codes to revise DSA (Complete C++ Placement DSA Course-CodeHelp-by Babbar)
 
 
 For Notes, download the raw file first and wait for sometime, a window will appear to save the notes in desired location, save it. 
